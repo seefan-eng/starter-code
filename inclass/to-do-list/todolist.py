@@ -7,22 +7,41 @@ def num_input(prompt):
             print("Not a number, try again!")
 
 def print_list(list):
-    pass 
+    for item in list:
+        print(item)
 
 def add(list, item):
-    pass
+    list.append(item)
+
 
 def remove(list, item):
-    pass
+    if item_found_in_list(list,item):
+        list.remove
+    else:
+        print("item is not in the list")
+    
 
 def item_found_in_list(list, item):
-    pass 
+    if item in list:
+        return true
+    else:
+        return false
+    
 
 def index_of_item(list, item):
-    pass
+    if item_found_in_list(list,item):
+        return list.index(item)
+    else:
+        return -1
+    
 
 def update_item(list, item, new_item):
-    pass 
+    index = index_of_item(list,item)
+    if index!= -1:
+        list[index] = new_item
+    else:
+        print("item is not in the list")
+     
 
 def menu():
     print("Options: [1] View your todos\n[2] Add a todo item\n[3] Remove a todo\n[4] Update a todo\n[5] Quit")
