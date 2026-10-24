@@ -1,0 +1,10 @@
+1. Did you find anything challenging about this project?
+
+2. What are some additional features you'd like to do? (List at least 3). These should also be beyond the core functionality of the project itself.
+
+3. Outline how you approached the project.
+
+4. If you tackled the A+, what were the additional fields? How did you decide on these fields?
+
+5. In your own words, when would you use a Dictionary over a List?
+
