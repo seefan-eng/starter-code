@@ -8,85 +8,107 @@ def num_input(prompt):
         print("Not a number")
 
 def str_to_num_list(string):
-    nums = []
-    vals = string.split(",")
-    for val in vals:
-        if val.isdigit():
-            nums.append(int(val))
-    return nums
+    numbers = string.split(",")
+    result = [] 
+
+    for num in numbers:
+        result.append(int(num))
+
+    return result
+    
 
 def generate_grid(n):
-    """
-    Generate an n x n grid with "_"s.
-    return the grid after
-    """
-    pass
+    grid = []
+
+    for i in range(n):
+        row = []
+        for j in range(n):
+            row.append("_")
+        grid.append(row)
+
+    return grid
+    
 
 def print_grid(grid):
-    """
-    Using the grid from generate_grid, print out the values one row at a time:
+    for row in grind:
+        for item in row:
+            print(item, end="")
+        print()
     
-    for example: grid = [['_', '_', '_', '_', '_'], ['_', '_', '_', '_', '_'], ['_', '_', '_', '_', '_'], ['_', '_', '_', '_', '_'], ['_', '_', '_','_', '_']]
-    this should print:
-    _ _ _ _ _
-    _ _ _ _ _
-    _ _ _ _ _
-    _ _ _ _ _
-    _ _ _ _ _
-
-    This should work for any 2D Array
-    """
-    pass
-
 def split_parity(n):
-    """
-    Create a 2D list that contains the even numbers and odd numbers in separate inner lists.
-    Go up to n (exclude n)
+    even = []
+    odd = []
 
-    For example:
-    n = 10
-    [ [0,2,4,6,8], [1,3,5,7,9] ]
+    for i in range(n):
+        if i % 2 == 0:
+            even.append(i)
+        else:
+            odd.append(i)
 
-    """
-    pass
+    return (even,odd)
+   
 
 
 def print_sequence(split_n):
-    """
-    Using the split array generated in "split_parity", print out the full sequence of numbers from the alternating lists
+    even = split_n[0]
+    odd = split_n[1]
 
-    print_sequence([[0,2,4,6,8], [1,3,5,7,9]])
-    0,1,2,3,4,5,6,7,8,9
-    """
-    pass
+    for i in range(len(even)):
+        print(even[i]), end=""
+
+        if i < len(odd):
+            print(odd[i], end="")
+    
+
+    
 
 def sum_grid(n):
-    """
-    Create a grid of n x n random numbers between 1 and 100
-    Calculate the sum of the rows, columns, and all the values.
-    Return a tuple containing the grid itself, sum of the rows, cols, and all
+    grid = []
+    rows = []
+    cols = []
+    total = 0
 
-    For example:
-    sum_grid(3): 
-        grid -> [[81, 96, 3], [4, 91, 52], [13, 65, 52]]
-        rows = [180, 147, 130]
-        cols = [98, 252, 107]
-        all = 457
-        returns: ([[81, 96, 3], [4, 91, 52], [13, 65, 52]], [180, 147, 130], [98, 252, 107], 457)
-    """
-    pass
+    for i in range(n):
+        row = []
+        for j in range(n):
+            row.append(random.randint(1,100))
+        grid.append(row)
+
+    for row in grid:
+        row_sum = sum(row)
+        rows.append(row_sum)
+
+    for j in range(n):
+        col_sum = 0
+        for i in range(n):
+            col_sum += grid[i][j]
+        cols.append(col_sum)
+
+    for row in grid:
+        for num in row:
+            total += num
+
+    return (grid,rows,cols,total)
+
+
+   
 
 def find_dupes(l):
-    """
-    Challenge: return a list with the duplicates from the list passed in as an argument.
+    count = {}
+    duplicates = []
 
-    Example:
-    l = [1,2,3,4,3,3,5,4]
-    find_dupes(l) -> [3,4]
+    for num in l:
+        if num in counts:
+            counts[num] += 1
+        else:
+            counts[num] = 1
 
-    Hint: How can we keep a count of how many times each value appears?
-    """
-    pass
+    for num in counts:
+        if counts[num] > 1:
+            duplicates.append(num)
+
+    return duplicates
+    
 
 
 def main():
